@@ -33,7 +33,7 @@
 ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Region = FALSE){
 
 
-  sysEstaciones   <- system.file("extdata", "Estaciones.csv", package = "climateandquality")
+  sysEstaciones   <- system.file("extdata", "Estaciones.csv", package = "AtmChile")
   tablaEstaciones <- read.csv(sysEstaciones, sep = "," , dec =".", encoding = "UTF-8")
 
   if(Estaciones[1] == "INFO"){
