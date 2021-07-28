@@ -41,7 +41,7 @@
 
 ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechadeTermino, Site = FALSE, Curar = TRUE){
 
-  sysEstaciones   <- system.file("extdata", "SINCA.CSV", package = "climateandquality")
+  sysEstaciones   <- system.file("extdata", "SINCA.CSV", package = "AtmChile")
   estationMatrix <- read.csv(sysEstaciones, sep = ",", dec =".", encoding = "UTF-8") #Matriz base de estaciones de monitoreo
 
 
