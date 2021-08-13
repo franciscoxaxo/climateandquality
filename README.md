@@ -207,6 +207,3 @@ N.  | National Code     |                               Name     | Latitude   |L
 ChileAirQualityApp is a dashboard that allows you to use the data download functions of this package enhanced with analysis, visualization and descriptive statistics tools.
 
         ChileAirQualityApp()
-This dashboard is also hosted online on shinyapps.io:
-
-[ChileAirQualityApp](https://chileairquality.shinyapps.io/chileairquality/ "ChileAirQualityApp")
