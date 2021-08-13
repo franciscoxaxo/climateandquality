@@ -3,6 +3,9 @@
 \name{ChileClimateData}
 \alias{ChileClimateData}
 \title{Title ChileClimateData}
+\source{
+<http://www.meteochile.gob.cl/>
+}
 \usage{
 ChileClimateData(Estaciones = "INFO", Parametros, inicio, fin, Region = FALSE)
 }
@@ -19,22 +22,25 @@ Available parameters: "Temperatura", "PuntoRocio", "Humedad","Viento", "PresionQ
 
 \item{Region}{logical parameter. If region is true it allows to enter the administrative region in which the station is located instead of the station code.}
 }
+\value{
+A data frame with climate data of Chile.
+}
 \description{
-function that compiles climate data from Climate direction of Chile (DMC)
+function that compiles climate data from Climate direction of Chile (D.M.C.)
 }
 \examples{
 
 try({ChileClimateData()}, silent = TRUE)
 
 try({
-head(ChileClimateData(Estaciones = "180005",
+data <- ChileClimateData(Estaciones = "180005",
  Parametros = c("Temperatura", "Humedad"),
-  inicio = "2020", fin = "2021"))
+  inicio = "2020", fin = "2020")
 }, silent = TRUE)
 
 try({
-ChileClimateData(Estaciones = "II",
+head(ChileClimateData(Estaciones = "II",
  Parametros = "Temperatura", inicio = "2020",
-  fin = "2021", Region = TRUE)
+  fin = "2020", Region = TRUE))
 }, silent = TRUE)
 }

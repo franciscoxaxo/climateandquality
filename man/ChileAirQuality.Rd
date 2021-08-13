@@ -3,6 +3,9 @@
 \name{ChileAirQuality}
 \alias{ChileAirQuality}
 \title{ChileAirQuality}
+\source{
+<https://sinca.mma.gob.cl/>
+}
 \usage{
 ChileAirQuality(
   Comunas = "INFO",
@@ -10,18 +13,23 @@ ChileAirQuality(
   fechadeInicio,
   fechadeTermino,
   Site = FALSE,
-  Curar = TRUE
+  Curar = TRUE,
+  st = FALSE
 )
 }
 \arguments{
 \item{Comunas}{data vector containing the names or codes of the monitoring
-stations. Available stations: "P. O'Higgins", "Cerrillos 1",
- "Cerrillos", "Cerro Navia", "El Bosque", "Independecia", "La Florida",
-  "Las Condes", "Pudahuel", "Puente Alto "," Quilicura "," Quilicura 1 ",
-  " Coyhaique I "," Coyhaique II ". To see the full list of stations use ChileAirQuality()}
+stations. Available stations: "P. O'Higgins","Cerrillos 1","Cerrillos","Cerro Navia",
+"El Bosque","Independecia","La Florida","Las Condes","Pudahuel","Puente Alto","Quilicura",
+"Quilicura 1","Alto Hospicio","Arica","Las Encinas Temuco","Nielol Temuco",
+"Museo Ferroviario Temuco","Padre Las Casas I","Padre Las Casas II","La Union",
+"CESFAM Lago Ranco","Mafil","Fundo La Ribera","Vivero Los Castanos","Valdivia I",
+"Valdivia II","Osorno","Entre Lagos","Alerce","Mirasol","Trapen Norte","Trapen Sur",
+"Puerto Varas","Coyhaique I","Coyhaique II","Punta Arenas".
+ To see the full list of stations use ChileAirQuality()}
 
 \item{Parametros}{data vector containing the names of the air quality parameters.
-Available parameters: "PM10", "PM25", "CO", "NOX", "NO2", "NO", "O3",
+Available parameters: "PM10", "PM25", "CO","SO2", "NOX", "NO2", "NO", "O3",
 "temp" (temperature), "RH" (relative humidity), "ws" ( wind speed),
  "wd" (wind direction).}
 
@@ -34,12 +42,14 @@ station in the variable "Comunas"}
 
 \item{Curar}{logical value that activates data curation for particulate matter,
 nitrogen oxides, relative humidity and wind direction.}
+
+\item{st}{logical value that includes validation reports from S.I.N.C.A. "NV": No validated, "PV": Pre-validated, "V": Validated.}
 }
 \value{
 A data frame with air quality data.
 }
 \description{
-function that compiles air quality data from the National Air Quality System (SINCA)
+function that compiles air quality data from the National Air Quality System (S.I.N.C.A.)
 }
 \examples{
 
@@ -54,9 +64,9 @@ data <- ChileAirQuality(Comunas = "El Bosque",
 }, silent =TRUE)
 
 try({
-ChileAirQuality(Comunas = c("EB", "SA"),
+head(ChileAirQuality(Comunas = c("EB", "SA"),
 Parametros = "PM10", fechadeInicio = "01/01/2020",
-fechadeTermino = "01/01/2021", Site = TRUE)
+fechadeTermino = "01/03/2020", Site = TRUE))
 }, silent = TRUE)
 
 }

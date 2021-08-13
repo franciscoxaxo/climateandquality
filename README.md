@@ -1,15 +1,17 @@
 # AtmChile
 R package that allows compiling information on air quality parameters and meteorological parameters of Chile from the sites of the National Air Quality System (SINCA) dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (DMC) dependent on the Directorate General of Aeronautic.
 
+Project developed by the Department of Chemistry, Faculty of Sciences of the University of Chile. FONDECYT Project 1200674.
+
 **Installation from GitHub:**
 
         library(devtools)
         install_github("franciscoxaxo/AtmChile")
         
- **Istallation from CRAN:**
- 
+
+**Installation from CRAN:**
+
         install.packages("AtmChile")
- 
         
 **Usage:**
 
@@ -99,6 +101,8 @@ N° |Code      |Latitude    |Longitude    |Estation                  | Ad. divis
 
 **Site:** logical value that allows entering the code of the monitoring station in the variable "Comunas". Default value: FALSE.
 
+**st:** logical value that includes validation reports from S.I.N.C.A. "NV": No validated, "PV": Pre-validated and "V": Validated. Default value: FALSE.
+
 ### Examples:
 
 #### Example 1:
@@ -109,7 +113,10 @@ N° |Code      |Latitude    |Longitude    |Estation                  | Ad. divis
 
         ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE)
         
+#### Example 3:
 
+        ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE, st = TRUE)
+        
 
 ## ChileClimateData
 
@@ -194,13 +201,9 @@ N.  | National Code     |                               Name     | Latitude   |L
 #### Example 2:
         ChileClimateData(Estaciones = "II", Parametros = "Temperatura", inicio = "2020", fin = "2021", Region = TRUE)
         
-## User Interface
 
-The ChileAirQuality function and the ChileClimateData has been implemented in a ShinyApp user interface with graphics functions for air quality analysis (OpenAir and Plotly packages):
+## ChileAirQualityApp
 
-[ChileAirQuality ShinyApp](https://chileairquality.shinyapps.io/chileairquality/ "ShinyApp")
+ChileAirQualityApp is a dashboard that allows you to use the data download functions of this package enhanced with analysis, visualization and descriptive statistics tools.
 
-
-
-
-
+        ChileAirQualityApp()
