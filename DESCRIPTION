@@ -11,10 +11,10 @@ Authors@R: c(person("Francisco", "Catalan Meyer", email = "francisco.catalan@ug.
   )
 Maintainer: Francisco Catalan Meyer <francisco.catalan@ug.uchile.cl>
 Description: Download air quality and meteorological information of Chile from  the National Air Quality System (S.I.N.C.A.)<https://sinca.mma.gob.cl/> dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (D.M.C.)<http://www.meteochile.gob.cl/> dependent on the Directorate General of Civil Aeronautics.
-License: GPL-3
+License: GPL-3 
 URL: https://github.com/franciscoxaxo/AtmChile
 Encoding: UTF-8
 LazyData: false
 RoxygenNote: 7.1.1
-Imports: data.table, dplyr, plotly, ggplot2, shiny, openair, lubridate, shinycssloaders
+Imports: data.table, dplyr, plotly, ggplot2, shiny, openair, lubridate, shinycssloaders, DT
 

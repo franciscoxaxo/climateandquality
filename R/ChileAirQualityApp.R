@@ -16,6 +16,7 @@
 #' @import openair
 #' @import lubridate
 #' @import shinycssloaders
+#' @import DT
 ChileAirQualityApp <- function() {
   Directory <- system.file("shiny", package = "AtmChile")
   if (Directory == "") {

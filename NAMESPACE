@@ -3,6 +3,7 @@
 export(ChileAirQuality)
 export(ChileAirQualityApp)
 export(ChileClimateData)
+import(DT)
 import(data.table)
 import(dplyr)
 import(ggplot2)
