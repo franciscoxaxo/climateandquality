@@ -209,4 +209,5 @@ ChileAirQualityApp is a dashboard that allows you to use the data download funct
         ChileAirQualityApp()
 
 This dashboard is also hosted online on shinyapps.io:
+
 [ChileAirQualityApp](https://chileairquality.shinyapps.io/chileairquality/ "ChileAirQualityApp")
