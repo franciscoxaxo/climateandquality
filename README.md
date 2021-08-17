@@ -1,5 +1,4 @@
 
-[![Travis build status](https://travis-ci.com/franciscoxaxo/AtmChile.svg?branch=main)](https://travis-ci.com/franciscoxaxo/AtmChile)
 [![](https://www.r-pkg.org/badges/version/AtmChile?color=green)](https://cran.r-project.org/package=AtmChile)
 
 # AtmChile
