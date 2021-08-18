@@ -1,4 +1,5 @@
 
+![](https://github.com/franciscoxaxo/AtmChile/actions/workflows/r.yml/badge.svg)
 [![](https://www.r-pkg.org/badges/version/AtmChile?color=green)](https://cran.r-project.org/package=AtmChile)
 
 # AtmChile
