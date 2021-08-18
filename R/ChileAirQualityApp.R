@@ -7,16 +7,13 @@
 #' @seealso <https://chileairquality.shinyapps.io/chileairquality/>
 #' @examples \dontrun{ChileAirQualityApp()}
 #' @import shiny
-#' @import dplyr
-#' @import data.table
-#' @import dplyr
-#' @import plotly
-#' @import ggplot2
 #' @import shiny
-#' @import openair
-#' @import lubridate
 #' @import shinycssloaders
-#' @import DT
+# @importFrom plotly plot_ly
+# @importFrom data.table setDT data.table
+# @importFrom DT dataTableOutput datatable renderDataTable
+# @importFrom lubridate year
+# @importFrom openair timeVariation corPlot timePlot polarPlot calendarPlot scatterPlot smoothTrend
 ChileAirQualityApp <- function() {
   Directory <- system.file("shiny", package = "AtmChile")
   if (Directory == "") {

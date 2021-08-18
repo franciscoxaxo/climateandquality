@@ -1,7 +1,4 @@
-library("data.table")
-library("ggplot2")
-library("plotly")
-library("dplyr")
+
 
 CV<- function(x, dec = 3){
   cv = (sd(x, na.rm = TRUE)/mean(x, na.rm = TRUE))*100
@@ -30,7 +27,7 @@ sdt<-function(x, dec = 3){
 
 datamean<- function(data, inicio = 5){
   len = length(data)
-  data<- data.table(data)
+  data<- data.table::data.table(data)
   datamean <- data[, lapply(.SD, meant), by = .(site, longitude, latitude), .SDcols = inicio:len]
   datamean <- as.data.frame(datamean)
   return(datamean)
@@ -39,7 +36,7 @@ datamean<- function(data, inicio = 5){
 
 datasd<- function(data, inicio = 5){
   len = length(data)
-  data<- data.table(data)
+  data<- data.table::data.table(data)
   datasd <- data[, lapply(.SD, sdt), by = .(site, longitude, latitude), .SDcols = inicio:len]
   datasd <- as.data.frame(datasd)
   return(datasd)
@@ -47,7 +44,7 @@ datasd<- function(data, inicio = 5){
 
 datamedian<- function(data, inicio = 5){
   len = length(data)
-  data<- data.table(data)
+  data<- data.table::data.table(data)
   datamedian <- data[, lapply(.SD, mediant), by = .(site, longitude, latitude), .SDcols = inicio:len]
   datamedian <- as.data.frame(datamedian)
   return(datamedian)
@@ -55,7 +52,7 @@ datamedian<- function(data, inicio = 5){
 
 datacv<- function(data, inicio = 5){
   len = length(data)
-  data<- data.table(data)
+  data<- data.table::data.table(data)
   datacv <- data[, lapply(.SD, CV), by = .(site, longitude, latitude), .SDcols = inicio:len]
   datacv <- as.data.frame(datacv)
   return(datacv)
@@ -64,7 +61,7 @@ datacv<- function(data, inicio = 5){
 
 datamean2<- function(data, inicio = 5){
   len = length(data)
-  data<- data.table(data)
+  data<- data.table::data.table(data)
   datamean <- data[, lapply(.SD, meant), by = .(Nombre, Latitud, Longitud), .SDcols = inicio:len]
   datamean <- as.data.frame(datamean)
   return(datamean)
@@ -73,7 +70,7 @@ datamean2<- function(data, inicio = 5){
 
 datasd2<- function(data, inicio = 5){
   len = length(data)
-  data<- data.table(data)
+  data<- data.table::data.table(data)
   datasd <- data[, lapply(.SD, sdt), by = .(Nombre, Latitud, Longitud), .SDcols = inicio:len]
   datasd <- as.data.frame(datasd)
   return(datasd)
@@ -81,7 +78,7 @@ datasd2<- function(data, inicio = 5){
 
 datamedian2<- function(data, inicio = 5){
   len = length(data)
-  data<- data.table(data)
+  data<- data.table::data.table(data)
   datamedian <- data[, lapply(.SD, mediant), by = .(Nombre, Latitud, Longitud), .SDcols = inicio:len]
   datamedian <- as.data.frame(datamedian)
   return(datamedian)
@@ -89,7 +86,7 @@ datamedian2<- function(data, inicio = 5){
 
 datacv2<- function(data, inicio = 5){
   len = length(data)
-  data<- data.table(data)
+  data<- data.table::data.table(data)
   datacv <- data[, lapply(.SD, CV), by = .(Nombre, Latitud, Longitud), .SDcols = inicio:len]
   datacv <- as.data.frame(datacv)
   return(datacv)
@@ -124,15 +121,15 @@ comparFunction<- function(data){
 siteplot<-function(data, latitud = data$Longitud, longitud = data$Latitud, centro = c(-70.6, -33.4)){
 
 
-  fig<-plot_ly(data,
+  fig<-plotly::plot_ly(data,
                lat = latitud,
                lon = longitud,
                marker = list(color = "red"),
                hovertext = ~paste("Estacion:", data$Estacion,"<br />", "Site:", data$Ciudad),
                type = 'scattermapbox'
   )
-  fig<-fig %>%
-    layout(
+  fig<- plotly::layout(
+      p = fig,
       mapbox = list(
         style = 'open-street-map',
         zoom =9,
@@ -254,7 +251,7 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Regio
         Latitud     <-  rep(tablaEstaciones[j, 5], length(date))
         Longitud    <-  rep(tablaEstaciones[j, 6], length(date))
         data        <-  data.frame(date, Nombre, Latitud, Longitud)
-        setDT(data)
+        data.table::setDT(data)
 
         for(k in 1:lenInParametros){
           for(l in 1:lenParametros){
@@ -317,7 +314,7 @@ ChileClimateData <- function(Estaciones = "INFO", Parametros, inicio, fin, Regio
               }else{
                 df2 <- data.frame(df[2], df[3])
               }
-              setDT(df2)
+              data.table::setDT(df2)
               data <- data[df2, on = c("date" = "momento")]
               df   <- NULL
               df2  <- NULL

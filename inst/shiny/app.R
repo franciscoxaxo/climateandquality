@@ -1,10 +1,4 @@
-library(DT)
 library(shiny)
-library(openair)
-library(dplyr)
-library(plotly)
-library(data.table)
-library(lubridate)
 library(shinycssloaders)
 
 e <- new.env()
@@ -63,7 +57,7 @@ ui <-fluidPage(
                                ),
                                checkboxGroupInput("Comunas2",
                                                   label ="",
-                                                  choices =c("Las Condes","La Florida",
+                                                  choices = c("Las Condes","La Florida",
                                                              "Pudahuel","Puente Alto","Quilicura",
                                                              "Quilicura 1", "Coyhaique I",
                                                              "Coyhaique II")
@@ -97,8 +91,8 @@ ui <-fluidPage(
                    sliderInput("rango",
                                "Rango:",
                                min = 1940,
-                               max = 2021,
-                               value = c(2000,2020)),
+                               max = lubridate::year(Sys.Date()),
+                               value = c(2000,(lubridate::year(Sys.Date()) - 1))),
 
                    #Climate data parameters
                    checkboxGroupInput("parametros",
@@ -226,7 +220,7 @@ ui <-fluidPage(
                  )),
 
 
-                 withSpinner(plotlyOutput("sitemap",
+                 withSpinner(plotly::plotlyOutput("sitemap",
                                           width = "500px",
                                           height = "500px"
                  )),
@@ -358,10 +352,10 @@ server <- function(input, output) {
           sliderInput("rango_calendar",
                       "Rango:",
                       step = 1,
-                      min = year(as.Date(input$Fecha_inicio, format = "%d/%m/%Y")),
-                      max = year(as.Date(input$Fecha_Termino, format = "%d/%m/%Y")),
-                      value = c(year(as.Date(input$Fecha_inicio, format = "%d/%m/%Y")),
-                                year(as.Date(input$Fecha_Termino, format = "%d/%m/%Y")))),
+                      min = lubridate::year(as.Date(input$Fecha_inicio, format = "%d/%m/%Y")),
+                      max = lubridate::year(as.Date(input$Fecha_Termino, format = "%d/%m/%Y")),
+                      value = c(lubridate::year(as.Date(input$Fecha_inicio, format = "%d/%m/%Y")),
+                                lubridate::year(as.Date(input$Fecha_Termino, format = "%d/%m/%Y")))),
           radioButtons(inputId = "choices",
                        label = "Contaminantes",
                        choices = input$Contaminantes)
@@ -475,42 +469,42 @@ server <- function(input, output) {
 
       if(input$selectData2 == "Calidad del aire"){
         if(input$checkSites){
-          if(input$Select=="timeVariation")
+          if(input$Select =="timeVariation")
           {
             #deploy timeVariation of air quality data un-group by site
-            timeVariation(data_totalAQ(),
+            openair::timeVariation(data_totalAQ(),
                           pollutant = input$choices,
                           type = "site")
           }
           else if(input$Select=="corPlot"){
             #deploy corPlot of air quality data un-group by site
-            corPlot(data_totalAQ(),
+            openair::corPlot(data_totalAQ(),
                     pollutant = c(input$choices,input$F_Climaticos),
                     type = "site")
           }
           else if(input$Select=="timePlot"){
             #deploy timePlot of air quality data un-group by site
-            timePlot(data_totalAQ(),
+            openair::timePlot(data_totalAQ(),
                      pollutant = input$choices,
                      type = "site",
                      avg.time = input$avgtime)
           }
           else if(input$Select=="polarPlot"){
             #deploy polarPlot of air quality data un-group by site
-            polarPlot(data_totalAQ(),
+            openair::polarPlot(data_totalAQ(),
                       pollutant = input$choices,
                       type = "site")
           }
           else if(input$Select=="calendarPlot"){
             #deploy timePlot of air quality data un-group by site
-            calendarPlot(data_totalAQ(),
+            openair::calendarPlot(data_totalAQ(),
                          pollutant = input$choices,
                          type = "site",
                          year = as.numeric(input$rango_calendar[1]):as.numeric(input$rango_calendar[2]))
           }
           else if(input$Select=="scatterPlot"){
             #deploy scatterPlot of air quality data
-            scatterPlot(data_totalAQ(),
+            openair::scatterPlot(data_totalAQ(),
                         x = input$x,
                         y= input$y,
                         x.log = input$logx,
@@ -518,35 +512,35 @@ server <- function(input, output) {
                         linear = input$lineal)
           }
           else if(input$Select=="smoothTrend"){
-            smoothTrend(data_totalAQ(),
+            openair::smoothTrend(data_totalAQ(),
                         pollutant = input$choices,
                         type = "site")
           }
         }else{
           if(input$Select=="timeVariation"){
             #deploy timeVariation of air quality data
-            timeVariation(data_totalAQ(), pollutant = input$choices)
+            openair::timeVariation(data_totalAQ(), pollutant = input$choices)
           }
           else if(input$Select=="corPlot"){
             #deploy corPlot of air quality data
-            corPlot(data_totalAQ(), pollutant = c(input$choices,input$F_Climaticos))
+            openair::corPlot(data_totalAQ(), pollutant = c(input$choices,input$F_Climaticos))
           }
           else if(input$Select=="timePlot"){
             #deploy timePlot of air quality data un-group by site
-            timePlot(data_totalAQ(), pollutant = input$choices,
+            openair::timePlot(data_totalAQ(), pollutant = input$choices,
                      avg.time = input$avgtime)
           }
           else if(input$Select=="polarPlot"){
             #deploy polarPlot of air quality data un-group by site
-            polarPlot(data_totalAQ(), pollutant = input$choices)
+            openair::polarPlot(data_totalAQ(), pollutant = input$choices)
           }
           else if(input$Select=="calendarPlot"){
             #deploy calendarPlot of air quality data un-group by site
-            calendarPlot(data_totalAQ(), pollutant = input$choices, year = as.numeric(input$rango_calendar[1]):as.numeric(input$rango_calendar[2]))
+            openair::calendarPlot(data_totalAQ(), pollutant = input$choices, year = as.numeric(input$rango_calendar[1]):as.numeric(input$rango_calendar[2]))
           }
           else if(input$Select=="scatterPlot"){
             #deploy scatterPlot of air quality data un-group by site
-            scatterPlot(data_totalAQ(),
+            openair::scatterPlot(data_totalAQ(),
                         x = input$x,
                         y= input$y,
                         log.x = input$logx,
@@ -554,7 +548,7 @@ server <- function(input, output) {
                         linear = input$lineal)
           }
           else if(input$Select=="smoothTrend"){
-            smoothTrend(data_totalAQ(), pollutant = input$choices)
+            openair::smoothTrend(data_totalAQ(), pollutant = input$choices)
 
           }
         }
@@ -563,52 +557,52 @@ server <- function(input, output) {
         if(input$checkSites){
           if(input$Select=="timeVariation"){
             #deploy timeVariation of air quality data un-group by site
-            timeVariation(data_totalDC(),
+            openair::timeVariation(data_totalDC(),
                           pollutant = input$choices, type = "Nombre")
           }
           else if(input$Select=="corPlot"){
             #deploy corPlot of air quality data un-group by site
-            corPlot(data_totalDC(),
+            openair::corPlot(data_totalDC(),
                     pollutant = input$choices
                     ,type = "Nombre")
           }
           else if(input$Select=="timePlot"){
             #deploy timePlot of air quality data un-group by site
-            timePlot(data_totalDC(),
+            openair::timePlot(data_totalDC(),
                      pollutant = input$choices
                      ,type = "Nombre",
                      avg.time = input$avgtime)
           }
           else if(input$Select=="calendarPlot"){
             #deploy timePlot of air quality data un-group by site
-            calendarPlot(data_totalDC(),
+            openair::calendarPlot(data_totalDC(),
                          pollutant = input$choices
                          ,type = "Nombre", year = as.numeric(input$rango_calendar[1]):as.numeric(input$rango_calendar[2]))
           }
           else if(input$Select=="smoothTrend"){
-            smoothTrend(data_totalDC(),
+            openair::smoothTrend(data_totalDC(),
                         pollutant = input$choices
                         ,type = "Nombre")
           }
         }else{
           if(input$Select=="timeVariation"){
             #deploy timeVariation of air quality data
-            timeVariation(data_totalDC(), pollutant = input$choices)
+            openair::timeVariation(data_totalDC(), pollutant = input$choices)
           }
           else if(input$Select=="corPlot"){
             #deploy corPlot of air quality data
-            corPlot(data_totalDC(), pollutant = input$choices)
+            openair::corPlot(data_totalDC(), pollutant = input$choices)
           }
           else if(input$Select=="timePlot"){
             #deploy timePlot of air quality data un-group by site
-            timePlot(data_totalDC(), pollutant = input$choices, avg.time = input$avgtime)
+            openair::timePlot(data_totalDC(), pollutant = input$choices, avg.time = input$avgtime)
           }
           else if(input$Select=="calendarPlot"){
             #deploy calendarPlot of air quality data un-group by site
-            calendarPlot(data_totalDC(), pollutant = input$choices, year = as.numeric(input$rango_calendar[1]):as.numeric(input$rango_calendar[2]))
+            openair::calendarPlot(data_totalDC(), pollutant = input$choices, year = as.numeric(input$rango_calendar[1]):as.numeric(input$rango_calendar[2]))
           }
           else if(input$Select=="smoothTrend"){
-            smoothTrend(data_totalDC(), pollutant = input$choices)
+            openair::smoothTrend(data_totalDC(), pollutant = input$choices)
           }
 
         }
@@ -768,7 +762,7 @@ server <- function(input, output) {
 
   #Map plot of air quality stations
 
-  output$sitemap<-renderPlotly({
+  output$sitemap<-plotly::renderPlotly({
     siteplot(ChileAirQuality())
   })
 

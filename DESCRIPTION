@@ -16,5 +16,5 @@ URL: https://github.com/franciscoxaxo/AtmChile
 Encoding: UTF-8
 LazyData: false
 RoxygenNote: 7.1.1
-Imports: data.table, dplyr, plotly, ggplot2, shiny, openair, lubridate, shinycssloaders, DT
+Imports: data.table, plotly, shiny, openair, lubridate, shinycssloaders, DT
 
