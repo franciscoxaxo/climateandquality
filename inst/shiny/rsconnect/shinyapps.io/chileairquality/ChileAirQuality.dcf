@@ -1,0 +1,13 @@
+name: chileairquality
+title: chileairquality
+username:
+account: chileairquality
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3983848
+bundleId: 4934971
+url: https://chileairquality.shinyapps.io/chileairquality/
+when: 1629255985.41726
+lastSyncTime: 1629255985.41726
+asMultiple: FALSE
+asStatic: FALSE

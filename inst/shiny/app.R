@@ -45,7 +45,7 @@ ui <-fluidPage(
                                checkboxGroupInput("Contaminantes",
                                                   label ="Contaminantes",
                                                   choices =c( "PM10", "PM25", "NO","NO2",
-                                                              "NOX","O3","CO")
+                                                              "NOX","O3","CO", "SO2")
                                )
                                ),
                                #Air quality stations buttons

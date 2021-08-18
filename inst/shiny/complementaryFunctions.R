@@ -523,7 +523,7 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                         print(paste(inParametro, inEstation)) #mensaje de exito
                       }
                       ,silent = T)
-                  } else if(inParametro == "NO2"| inParametro == "no2"|
+                  }else if(inParametro == "NO2"| inParametro == "no2"|
                             inParametro == "No2"| inParametro == "nO2")
                   {
                     codParametro <- "/Cal/0003//0003.horario.horario.ic&" #codigo dioxido de nitrogeno
@@ -540,7 +540,7 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                         print(paste(inParametro,inEstation))
                       }
                       , silent = TRUE)
-                  } else if(inParametro == "NOX"|inParametro == "NOx"|
+                  }else if(inParametro == "NOX"|inParametro == "NOx"|
                             inParametro == "nOX"|inParametro == "NoX"|
                             inParametro == "Nox"|inParametro == "nOx"|
                             inParametro == "nox"|inParametro == "noX")
@@ -559,7 +559,24 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                         print(paste(inParametro, inEstation))
                       }
                       , silent = TRUE)
-                  } else if(inParametro == "tEMP" |inParametro == "TeMP"|inParametro == "TEmP" |inParametro == "TEMp"
+                  }else if(inParametro == "SO2"| inParametro == "so2"|
+                           inParametro == "sO2"| inParametro == "So2")
+                  {
+                    codParametro <- "/Cal/0001//0001.horario.horario.ic&"
+                    url <- gsub(" ", "",paste(urlSinca, mCod, codParametro, id_fecha, urlSinca2))
+                    try(
+                      {
+                        SO2_Bruto <- read.csv(url, dec =",", sep= ";", na.strings= "")
+                        SO2_col1 <- SO2_Bruto$Registros.validados
+                        SO2_col2 <- SO2_Bruto$Registros.preliminares
+                        SO2_col3 <- SO2_Bruto$Registros.no.validados
+                        SO2 <- gsub("NA","",gsub(" ", "",paste(SO2_col1, SO2_col2, SO2_col3)))
+                        if(length(SO2) == 0){SO2 <- rep("",horas + 1)}
+                        data <- data.frame(data, SO2)
+                        print(paste(inParametro, inEstation))
+                      }
+                      , silent = TRUE)
+                  }else if(inParametro == "tEMP" |inParametro == "TeMP"|inParametro == "TEmP" |inParametro == "TEMp"
                             |inParametro == "TEmp"|inParametro == "TeMp"|inParametro == "TemP"|inParametro == "tEMp"
                             |inParametro == "tEmP"|inParametro == "teMP"|inParametro == "temp"|inParametro == "TEMP"
                             |inParametro == "temP"|inParametro == "teMp"|inParametro == "tEmp"|inParametro == "Temp")
