@@ -2,14 +2,16 @@
 title: 'AtmChile: A R package to explore open-source air pollution and meteorological
   data and implementation through Shiny web platform.'
 authors:
-  - name: Francisco Catalán Meyer
-    affiliation: '1'
-    orcid: 0000-0003-3506-5376
-  - name: Manuel Leiva Guzmán
-    affiliation: '1'
-    orcid: 0000-0001-8891-0399
-  - name: Richard Toro Araya
-    affiliation: '1'
+- name: Francisco Catalán Meyer
+  affiliation: '1'
+  orcid: 0000-0003-3506-5376
+- name: Manuel Leiva Guzmán
+  affiliation: '1'
+  orcid: 0000-0001-8891-0399
+- name: Richard Toro Araya
+  affiliation: '1'
+date: "22-08-2021"
+output: pdf_document
 affiliations:
 - index: '1'
   name: Department of Chemistry, Faculty of Sciences, University of Chile, Chile
@@ -18,7 +20,6 @@ tags:
 - open-source
 - air quality
 - shiny
-date: "22-08-2021"
 ---
 
 # Summary
@@ -122,26 +123,31 @@ The pollution data was downloaded from SINCA using `ChileAirQualityApp` for the 
 The data was downloaded from SINCA for the monitoring stations located at Parque O’Higgins and La Florida between the years 2015 and 2020. **Figure 1** show a time series plot generated with the option “timePlot” for PM10 with a month average time resolution.
 
 ![Figure 1](Figure1.png)
+
 **Figure 1:** *PM10 Monthly time series for the monitoring stations La Florida (LF) and Parque O’Higgins (SA) between 2015 and 2020.*
 
 **Figure 2** show the time series plot generated with the “timeVariation” option for PM10 and PM25 for combined monitoring stations. This option generates four graphs: hourly variation according to the average day of the week, hourly variation in the average day, monthly variation in an average year and daily variation in the average week with a confidence interval of 95%.
 
 ![Figure 2](Figure2.png)
+
 **Figure 2:** *PM10 and PM25 times series for combined monitoring stations between 2015 and 2020 generated with the timeVariation option.*
 
 Correlations between PM10, PM25 and the meteorological variables wind speed and wind direction are shown in **Figure 3** by means of a plot generated with the corPlot option separated according to the monitoring station. The coded correlation is observed in three ways: by shape (ellipses), color and numerical value.
 
 ![Figure 3](Figure3.png)
+
 **Figure 3:** *PM10, PM25, wind speed and wind direction correlation plot for the monitoring stations La Florida (LF) and Parque O’Higgins (SA).*
 
 The calendarPlot option generates a calendar with the daily averages of a certain parameter with a scrollbar to filter the time interval. In this case, it was applied for PM25 during the year 2019 as shown in **Figure 4**.
 
 ![Figure 4](Figure4.png)
+
 **Figure 4:** *PM25 Calendar Plot for combined monitoring stations in 2019.*
 
 The polarPlot function plots a bivariate polar graph of how concentrations vary with wind speed and direction. **Figure 5** represents the polar graph for the monitoring stations La Florida (LF) and Parque O'Higgins (SA).
 
 ![Figure 5](Figure5.png)
+
 **Figure 5:** *PM25 Polar Plot for the monitoring stations La Florida (LF) and Parque O’Higgins (SA).*
 
 
@@ -153,11 +159,13 @@ The data was downloaded from DMC for the monitoring stations located at the Anto
 **Figure 6** show a time series plot generated with the option “smoothTrend” for Temperature(“Ts_Valor”) showing the monthly averages and the linear trend of the temperatures in that period of time.
 
 ![Figure 6](Figure6.png)
+
 **Figure 6:** *Temperature time series plot for the meteorological stations of Cerro Moreno Antofagasta Ap. And El Loa Calama Ad. between the years 2015 and 2020. Generated with the option “smootTrend”.*
 
 The timeVariation option can also be used on the parameters of the DMC meteorological stations. **Figure 7** shows the time series generated with this option for the combined meteorological stations of the Antofagasta Region between 2015 and 2020.
 
 ![Figure 7](Figure7.png)
+
 **Figure 7:** *Temperature times series for combined meteorological stations between 2015 and 2020 generated with the timeVariation option.*
 
 # Acknowledgments
