@@ -10,7 +10,7 @@ authors:
   orcid: 0000-0001-8891-0399
 - affiliation: '1'
   name: Richard Toro Araya
-date: "`r Sys.Date()`"
+date: 22-08-2021
 affiliations:
 - index: '1'
   name: Department of Chemistry, Faculty of Sciences, University of Chile, Chile
