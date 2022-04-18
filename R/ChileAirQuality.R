@@ -150,13 +150,15 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                           s.PM10 <- NULL
                           for(q in 1:length(PM10)){
                             if(!is.na(PM10_col1[q])){
-                              s.PM10 <- c(s.PM10, "NV")
+                              s.PM10 <- c(s.PM10, "V")
                             }else if(!is.na(PM10_col2[q])){
                               s.PM10 <- c(s.PM10, "PV")
-                            }else if(!is.na(PM10_col3[q])){
-                              s.PM10 <- c(s.PM10, "V")
                             }else{
-                              s.PM10 <- c(s.PM10, "")
+                              if(!is.na(PM10_col3[q])){
+                                s.PM10 <- c(s.PM10, "NV")
+                              }else{
+                                s.PM10 <- c(s.PM10, "")
+                              }
                             }
                           }
 
@@ -199,14 +201,17 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                         if(st){
                           s.PM25 <- NULL
                           for(q in 1:length(PM25)){
-                            if(!is.na(PM10_col1[q])){
-                              s.PM25 <- c(s.PM25, "NV")
+                            if(!is.na(PM25_col1[q])){
+                              s.PM25 <- c(s.PM25, "V")
                             }else if(!is.na(PM25_col2[q])){
                               s.PM25 <- c(s.PM25, "PV")
-                            }else if(!is.na(PM25_col3[q])){
-                              s.PM25 <- c(s.PM25, "V")
                             }else{
-                              s.PM25 <- c(s.PM25, "")
+                              if(!is.na(PM25_col3[q])){
+                                s.PM25 <- c(s.PM25, "NV")
+                              }
+                              else{
+                                s.PM25 <- c(s.PM25, "")
+                              }
                             }
                           }
 
@@ -245,13 +250,15 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                           s.O3 <- NULL
                           for(q in 1:length(O3)){
                             if(!is.na(O3_col1[q])){
-                              s.O3 <- c(s.O3, "NV")
+                              s.O3 <- c(s.O3, "V")
                             }else if(!is.na(O3_col2[q])){
                               s.O3 <- c(s.O3, "PV")
-                            }else if(!is.na(O3_col3[q])){
-                              s.O3 <- c(s.O3, "V")
                             }else{
-                              s.O3 <- c(s.O3, "")
+                              if(!is.na(O3_col3[q])){
+                                s.O3 <- c(s.O3, "NV")
+                              }else{
+                                s.O3 <- c(s.O3, "")
+                              }
                             }
                           }
 
@@ -292,13 +299,15 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                           s.CO <- NULL
                           for(q in 1:length(CO)){
                             if(!is.na(CO_col1[q])){
-                              s.CO <- c(s.CO, "NV")
+                              s.CO <- c(s.CO, "V")
                             }else if(!is.na(CO_col2[q])){
                               s.CO <- c(s.CO, "PV")
-                            }else if(!is.na(CO_col3[q])){
-                              s.CO <- c(s.CO, "V")
                             }else{
-                              s.CO <- c(s.CO, "")
+                              if(!is.na(CO_col3[q])){
+                                s.CO <- c(s.CO, "NV")
+                              }else{
+                                s.CO <- c(s.CO, "")
+                              }
                             }
                           }
 
@@ -338,11 +347,11 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                           s.NO <- NULL
                           for(q in 1:length(NO)){
                             if(!is.na(NO_col1[q])){
-                              s.NO <- c(s.NO, "NV")
+                              s.NO <- c(s.NO, "V")
                             }else if(!is.na(NO_col2[q])){
                               s.NO <- c(s.NO, "PV")
                             }else if(!is.na(NO_col3[q])){
-                              s.NO <- c(s.NO, "V")
+                              s.NO <- c(s.NO, "NV")
                             }else{
                               s.NO <- c(s.NO, "")
                             }
@@ -384,11 +393,11 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                           s.NO2 <- NULL
                           for(q in 1:length(NO2)){
                             if(!is.na(NO2_col1[q])){
-                              s.NO2 <- c(s.NO2, "NV")
+                              s.NO2 <- c(s.NO2, "V")
                             }else if(!is.na(NO2_col2[q])){
                               s.NO2 <- c(s.NO2, "PV")
                             }else if(!is.na(NO2_col3[q])){
-                              s.NO2 <- c(s.NO2, "V")
+                              s.NO2 <- c(s.NO2, "NV")
                             }else{
                               s.NO2 <- c(s.NO2, "")
                             }
@@ -432,13 +441,15 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                           s.NOX <- NULL
                           for(q in 1:length(NOX)){
                             if(!is.na(NOX_col1[q])){
-                              s.NOX <- c(s.NOX, "NV")
+                              s.NOX <- c(s.NOX, "V")
                             }else if(!is.na(NOX_col2[q])){
                               s.NOX <- c(s.NOX, "PV")
-                            }else if(!is.na(NOX_col3[q])){
-                              s.NOX <- c(s.NOX, "V")
                             }else{
-                              s.NOX <- c(s.NOX, "")
+                              if(!is.na(NOX_col3[q])){
+                                s.NOX <- c(s.NOX, "NV")
+                              }else{
+                                s.NOX <- c(s.NOX, "")
+                              }
                             }
                           }
 
@@ -479,13 +490,15 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
                           s.SO2 <- NULL
                           for(q in 1:length(SO2)){
                             if(!is.na(SO2_col1[q])){
-                              s.SO2 <- c(s.SO2, "NV")
+                              s.SO2 <- c(s.SO2, "V")
                             }else if(!is.na(SO2_col2[q])){
                               s.SO2 <- c(s.SO2, "PV")
-                            }else if(!is.na(SO2_col3[q])){
-                              s.SO2 <- c(s.SO2, "V")
                             }else{
-                              s.SO2 <- c(s.SO2, "")
+                              if(!is.na(SO2_col3[q])){
+                                s.SO2 <- c(s.SO2, "NV")
+                              }else{
+                                s.SO2 <- c(s.SO2, "")
+                              }
                             }
                           }
 
@@ -714,15 +727,16 @@ ChileAirQuality <- function(Comunas = "INFO", Parametros, fechadeInicio, fechade
         val <- TRUE
         j <- 1
         while(val){
-          if(data_total[j, i] == ""){
+          if(data_total[j, i] == ""| is.na(data_total[j, i])){
             j <- j + 1
             if(j > nrow(data_total)){
               val <- FALSE
             }
-          }else if(data_total[j, i] != "NV" & data_total[j, i] != "PV" & data_total[j, i] != "V"){
+          }
+          if(data_total[j, i] != "NV" & data_total[j, i] != "PV" & data_total[j, i] != "V"){
             data_total[[i]] <- as.numeric(data_total[[i]])
             val <- FALSE
-          }else if(data_total[j, i] == "NV" | data_total[j, i] == "PV" | data_total[j, i] == "V"){
+          }else{
             val <- FALSE
           }
         }

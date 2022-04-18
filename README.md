@@ -1,6 +1,6 @@
-[![](https://www.r-pkg.org/badges/version/AtmChile?color=green)](https://cran.r-project.org/package=AtmChile)
+
 ![](https://github.com/franciscoxaxo/AtmChile/actions/workflows/r.yml/badge.svg)
-![](https://cranlogs.r-pkg.org/badges/grand-total/AtmChile)
+[![](https://www.r-pkg.org/badges/version/AtmChile?color=green)](https://cran.r-project.org/package=AtmChile)
 
 # AtmChile
 R package that allows compiling information on air quality parameters and meteorological parameters of Chile from the sites of the National Air Quality System (SINCA) dependent on the Ministry of the Environment and the Meteorological Directorate of Chile (DMC) dependent on the Directorate General of Aeronautic.
@@ -45,44 +45,213 @@ HR       |Relative humidity                                 | %
 
 The following stations are available:
 
-N° |Code      |Latitude    |Longitude    |Estation                  | Ad. division |
----|----------|------------|-------------|--------------------------|--------------|
-1  | SA       |  -33.4508  |  -70.6604   | P. O'Higgins             | RM           |
-2  | CE1      |   -33.4795 |  -70.7190   | Cerrillos 1              | RM           |
-3  | CE       |  -33.4824  |  -70.7039   | Cerrillos                | RM           |
-4  | CN       |   -33.4197 |  -70.7317   | Cerro Navia              | RM           |
-5  | EB       |   -33.5336 |  -70.6659   | El Bosque                | RM           |
-6  | IN       |   -33.4089 |  -70.6508   | Independecia             | RM           |
-7  | LF       |   -33.5032 |  -70.5879   | La Florida               | RM           |
-8  | LC       |   -33.3634 |  -70.5230   | Las Condes               | RM           |
-9  | PU       |   -33.4244 |  -70.7498   | Pudahuel                 | RM           |
-10 | PA       |   -33.5779 |  -70.5941   | Puente Alto              | RM           |
-11 | QU       |    -33.336 |  -70.7235   | Quilicura                | RM           |
-12 | QU1      |   -33.3525 |  -70.7479   | Quilicura 1              | RM           |
-15 | AH       |   -20.2904 |  -70.1001   | Alto Hospicio            | I            |
-16 | AR       |   -18.4768 |  -70.2879   | Arica                    | XV           |
-17 | TE       |   -38.7486 |  -72.6207   | Las Encinas Temuco       | IX           |
-18 | TEII     |   -38.7270 |  -72.5800   | Nielol Temuco            | IX           |
-19 | TEIII    |   -38.7253 |  -72.5711   | Museo Ferroviario Temuco | IX           |
-20 | PLCI     |   -38.7724 |  -72.5950   | Padre Las Casas I        | IX           |
-21 | PLCII    |   -38.7647 |  -72.5987   | Padre Las Casas II       | IX           |
-22 | LU       |   -40.2868 |  -73.0767   | La Union                 | XIV          |
-23 | LR       |   -40.3212 |  -72.4718   | CESFAM Lago Ranco        | XIV          |
-24 | MAI      |   -39.6656 |  -72.9537   | Mafil                    | XIV          |
-25 | MAII     |   -39.5423 |  -72.9252   | Fundo La Ribera          | XIV          |
-26 | MAIII    |   -39.7192 |  -73.1286   | Vivero Los Castanos      | XIV          |
-27 | VA       |   -39.8313 |  -73.2285   | Valdivia I               | XIV          |
-28 | VAII     |   -39.8054 |  -73.2587   | Valdivia II              | XIV          |
-29 | OS       |   -40.5844 |  -73.1187   | Osorno                   | X            |
-30 | OSII     |   -40.6837 |  -72.5963   | Entre Lagos              | X            |
-31 | PMI      |   -41.3991 |  -72.8995   | Alerce                   | X            |
-32 | PMII     |   -41.4795 |  -72.9687   | Mirasol                  | X            |
-33 | PMIII    |   -41.5103 |  -73.0652   | Trapen Norte             | X            |
-34 | PMIV     |   -41.5187 |  -73.0880   | Trapen Sur               | X            |
-35 | PV       |   -41.3289 |  -72.9682   | Puerto Varas             | X            |
-36 | COI      |   -45.5799 |  -72.0610   | Coyhaique I              | XI           |
-37 | COII     |   -45.5790 |  -72.0499   | Coyhaique II             | XI           |
-38 | PAR      |   -53.1582 |  -70.9214   | Punta Arenas             | XII          |
+Code      |Latitude    |Longitude    |Estation                  | Ad. division |
+----------|------------|-------------|--------------------------|--------------|
+SA        |-33.450819  | -70.6604476  | Parque O'Higgins | RM
+CEII      | -33.479515 | -70.719064 | Cerrillos 1 | RM
+CEI       |-33.482411  | -70.703947 | Cerrillos | RM
+CN        |-33.419725  | -70.73179 | Cerro Navia | RM
+EB        | -33.533626 | -70.665906 | El Bosque | RM
+IN        | -33.40892 | -70.650886 | Independencia | RM
+LF        |  -33.503288 | -70.587916 | La Florida | RM
+LC        |-33.363453 | -70.523024 | Las Condes | RM
+PU        | -33.424439 | -70.749876 | Pudahuel | RM
+PA        | -33.577948 | -70.594184 | Puente Alto | RM
+QU        | -33.33632 | -70.723583 | Quilicura | RM
+QUI       | -33.352539 | -70.747952 | Quilicura 1 | RM
+TAL       | -33.674 | -70.953 | Talagante | RM
+AH        | -20.290467 | -70.100192 | Alto Hospicio | I
+AR        |  -18.476839 | -70.287911 | Arica | XV
+TE        | -38.748699 | -72.620788 | Las Encinas Temuco | IX
+TEII      |  -38.727003 | -72.580002 | Nielol Temuco | IX
+TEIII     | -38.725302 | -72.571193 | Museo Ferroviario Temuco | IX
+PLCI      | -38.772463 | -72.595024 | Padre Las Casas I | IX
+PLCII     |  -38.764767 | -72.598796 | Padre Las Casas II | IX
+LU        |-40.286857 | -73.07671 | La Union | XIV
+LR        |  -40.321282 | -72.471895 | CESFAM Lago Ranco | XIV
+MAI       |  -39.665626 | -72.953729 | Mafil | XIV
+MAII      |  -39.542346 | -72.925205 | Fundo La Ribera | XIV
+MAIII     | -39.719218 | -73.128677 | Vivero Los Castanos | XIV
+VA        |  -39.831316 | -73.228513 | Valdivia I | XIV
+VAII      |  -39.805429 | -73.25873 | Valdivia II | XIV
+OS        | -40.584479 | -73.11872 | Osorno | X
+OSII      |  -40.683736 | -72.596399 | Entre Lagos | X
+PMI       | -41.39917 | -72.899523 | Alerce | X
+PMII      |  -41.479507 | -72.968756 | Mirasol | X
+PMIII     | -41.510342 | -73.065294 | Trapen Norte | X
+PMIV      | -41.518765 | -73.08804 | Trapen Sur | X
+PV        | -41.328935 | -72.968209 | Puerto Varas | X
+VI        |  -45.404 | -66.687 | Vialidad | XI
+COI       |  -45.57993636 | -72.0610848 | Coyhaique I | XI
+COII      |  -45.57904645 | -72.04996681 | Coyhaique II | XI
+PAR       | -53.158295 | -70.921497 | Punta Arenas | XII
+TOCI      |  -22.06 | -70.187 | Tres Marias | II
+TOCII     |  -22.086 | -70.188 | Super Site | II
+TOCIII    |  -22.09 | -70.199 | Gobernacion | II
+TOCIV     |  -22.108 | -70.209 | Bomberos | II
+ANTI      | -23.614 | -70.383 | Antofagasta | II
+ANTII     |  -23.674 | -70.407 | Playa Blanca | II
+ANTIII    |  -23.612 | -70.381 | Rendic | II
+ANTIV     | -23.833 | -70.309 | Sur | II
+CALI      |  -22.342 | -68.651 | Chiu Chiu | II
+CALII     |  -22.46 | -68.938 | Club Deportivo 23 de Marzo | II
+CALIII    |  -22.442 | -68.933 | Colegio Pedro Vergara Keller | II
+CALIV     |  -22.462 | -68.928 | Estacion Centro | II
+CALV      |  -22.454 | -68.91 | Hospital el Cobre | II
+CALVI     |  -22.343 | -68.649 | Nueva ChiuChiu | II
+CALVII    |  -22.464 | -68.921 | Oasis | II
+CALVIII   | -22.461 | -68.948 | Servicio Medico Legal | II
+CALIX     |  -22.321 | -68.937 | Aukahuasi | II
+CALX      |  -22.315 | -68.93 | San Jose | II
+CALXI     |  -22.475 | -68.928 | Villa Caspana | II
+MELI      |  -22.454 | -68.91 | Hospital | II
+MELII     |  -22.345 | -69.661 | Iglesia | II
+MEJI      |  -23.102 | -70.445 | Jardin Infantil Integra | II
+MEJII     | -23.105 | -70.442 | Juan Jose Latorre | II
+MEJIII    |  -23.1 | -70.45 | Compania de Bomberos | II
+MEJIV     |  -23.098 | -70.463 | Ferrocarriles | II
+SGO       |  -22.89 | -69.319 | Sierra Gorda | II
+TALI      |  -25.007 | -70.463 | Paposo | II
+TALII     |  -24.983 | -70.461 | Punto de Maximo Impacto | II
+TOCI      |  -22.086 | -70.189 | Escuela E-10 | II
+TOCII     |-22.094 | -70.197 | Centro | II
+TOCIII    |  -22.089 | -70.195 | Escuela E-12 | II
+TOCIV     |  -22.094 | -70.197 | Escuela Gabriela Mistral | II
+TOCV      |-22.107 | -70.214 | Sur | II
+COPI      |  -27.37 | -70.323 | Copiapo Sivica | III
+COPII     |  -27.36 | -70.33 | Copiapo | III
+COPIII    | -27.37 | -70.304 | Los Volcanes | III
+COPIV     | -27.411 | -70.269 | Paipote | III
+COPV      | -27.393 | -70.299 | San Fernando | III
+DALI      |  -26.423 | -69.507 | CAP | III
+DALII     |  -26.433 | -69.481 | Dona Ines | III
+FREI      |  -28.504 | -71.127 | SM6 | III
+FREII     | -28.498 | -71.096 | SM7 | III
+FREIII    |  -28.508 | -71.081 | SM8 | III
+HUAI      |  -28.47 | -71.22 | Huasco Sivica | III
+HUAII     |  -28.468 | -71.227 | 21 de Mayo | III
+HUAIII     |  -28.466 | -71.222 | EME F | III
+HUAIV     |  -28.47 | -71.219 | EME M | III
+HUAV      |  -28.465 | -71.257 | EME ME | III
+HUAVI     |  -28.467 | -71.231 | Huasco II | III
+HUAVII    |  -28.501 | -71.254 | SM1 | III
+HUAVIII   |  -28.462 | -71.181 | SM2 | III
+HUAIX     |  -28.472 | -71.178 | SM3 | III
+HUAX      |  -28.481 | -71.167 | SM4 | III
+HUAXI     | -28.484 | -71.146 | SM5 | III
+TAMI      | -27.475509 | -70.265893 | Tierra Amarilla | III
+TAMII     |  -27.658 | -70.235 | Pabellon | III
+ANDI      |-30.228 | -71.086 | Andacollo | IV
+ANDII     |  -30.252 | -71.082 | Chepiquilla | IV
+ANDIII    | -30.233 | -71.094 | El Sauce | IV
+ANDIV     |  -30.228 | -71.086 | Hospital | IV
+ANDV      | -30.236 | -71.084 | Urmeneta - Plaza Centenario | IV
+COQI      | -29.971 | -71.336 | Coquimbo | IV
+COQII     | -29.92 | -71.256 | La Serena | IV
+LVI       | -31.928 | -71.137 | Caimanes | IV
+LVII      | -31.819 | -70.581 | Chacay | IV
+LVIII     | -31.974 | -71.01 | El Mauro | IV
+LVIV      | -83.85 | -89.132 | Punta Chungo | IV
+SLMI      | -31.889 | -70.629 | Cuncumen | IV
+SLMII     | -31.881 | -70.955 | Camisas | IV
+SLMIII     | -31.805 | -74.279 | Coiron | IV
+SLMIV 1   | -31.781 | -70.533 | Hotel Mina | IV
+SLMV      | -31.895 | -70.836 | Quelen Alto | IV
+CALEI     | -32.847 | -71.225 | "La Cruz   Colbun" | V
+CALEII     | -32.782 | -71.19 | La Calera | V
+CALEIII   | -32.749 | -72.246 | Rural 1 | V
+CATEI     | -32.779 | -70.959 | Catemu | V
+CATEII    | -32.824 | -71.006 | Romeral | V
+CATEIII   | -32.777 | -70.938 | Santa Margarita | V
+CCNI      | -32.926243 | -71.512461 | Concon MMA | V
+CCNII  | -32.921 | -71.44 | Colmo | V
+CCNIII | -32.925 | -71.515 | Concon | V
+CCNIV | -32.935 | -71.525 | Junta de Vecinos | V
+CCNV |-32.916 | -71.481 | Las Gaviotas | V
+CCNVI | -32.933 | -71.528 | Concon Sur | V
+LCZ | -32.813 | -71.227 | "La Cruz   Melon" | V
+LAN  |-32.846 | -70.586 | Los Andes | V
+LCA |-32.798 | -70.898 | Lo Campo | V
+PCHI | -32.719 | -71.407 | Puchuncavi | V
+PCHII  | -32.736 | -71.451 | Campiche | V
+PCHIII  | -32.748 | -71.474 | La Greda | V
+PCHIV | -32.764 | -71.455 | Los Maitenes | V
+PCHV  | -31.841 | -71.456 | Ventanas | V
+PCHVI  | -32.751 | -71.48 | Terminal Concentrados | V
+QLLI  | -32.886 | -71.247 | Cuerpo de Bomberos | V
+QLLII | -32.891794 | -71.208638 | La Palma | V
+QLLIII  | -32.937 | -71.274 | San Pedro | V
+QLLIV  | -32.913 | -71.372 | Manzanar | V
+QLPI | -33.047 | -71.435 | Quilpue | V
+QLPII | -33.039 | -71.429 | ARMAT | V
+QNTI | -32.788 | -71.532 | Centro Quintero | V
+QNTII | -32.795 | -71.496 | Loncura | V
+QNTIII  | -32.772516 | -71.535303 | Quintero | V
+QNTIV  | -32.801 | -71.483 | Sur | V
+QNTV  | -32.808 | -71.436 | Valle Alegre | V
+VPO  | -33.05 | -71.614 | Valparaiso | V
+VNA  | -33.02 | -71.55 | Vina del Mar | V
+CDE  | -34.032 | -76.66 | Codegua | VI
+MCHI  | -34.245 | -76.556 | Cauquenes | VI
+MCHII| -34.262 | -76.463 | Cipreses | VI
+MCHIII  | -34.204 | -76.53 | Coya PoblaciOn | VI
+MCHIV | -34.084 | -76.382 | Sewell | VI
+MSTI  | -33.954 | -76.639 | Casas de Peuco | VI
+MSTII | -33.981 | -76.704 | San Francisco de Mostazal | VI
+RGAI  | -34.162 | -76.714 | Rancagua I | VI
+RGAII  | -34.144 | -76.737 | Rancagua II | VI
+RNG | -34.395 | -76.853 | Rengo | VI
+RQNI  | -34.214 | -76.751 | MVC | VI
+RQNII | -34.328 | -76.793 | Totihue | VI
+SFDO  | -34.58 | -76.99 | San Fernando | VI
+CQN | -35.965 | -72.317 | Cauquenes Sivica | VII
+CRCI  | -34.975 | -77.234 | Curicó | VII
+CRCII  | -34.972 | -77.23 | El Boldo | VII
+LIN  | -35.837 | -77.593 | Linares | VII
+TALI  | -35.435 | -77.678 | La Florida | VII
+TALII  | -35.436 | -77.619 | U.C. Maule | VII
+TALIII | -35.407 | -77.633 | Universidad de Talca | VII
+TNOI | -34.868 | -77.164 | "Teno   CEMENTOS BIO BIO" | VII
+TNOII  | -34.862 | -77.131 | "Teno   ENLASA" | VII
+CBR | -37.024 | -72.266 | Colicheu | VIII
+CHYI | -36.923 | -73.036 | Punteras | VIII
+CHYII | -36.913 | -73.036 | "Meteorológica   Chiguayante" | VIII
+CHLI | -36.595 | -72.089 | "INIA   Chillán" | VIII
+CHLII | -36.616 | -72.093 | Puren | VIII
+CONC  | -36.785 | -73.052 | Kingston College | VIII
+CNELI  | -37.021 | -73.15 | Cerro Merquín | VIII
+CNELII  | -36.999 | -73.104 | Calabozo | VIII
+CNELIII  | -37.009 | -73.15 | Coronel Norte | VIII
+CNELIV  | -37.032 | -73.139 | Coronel Sur | VIII
+CNELV  | -36.954 | -73.151 | "Escuadron   ENEL" | VIII
+CNELVI  | -36.934 | -73.153 | "Escuadron  ENESA" | VIII
+CNELVII | -36.984 | -73.153 | "Lagunillas  ENEL" | VIII
+CNELVIII | -37.1 | -73.152 | Lota rural | VIII
+CNELIX  | -37.074 | -73.145 | Lota urbana | VIII
+CNH | -37.485 | -73.332 | Balneario Curanilahue | VIII
+HPNI | -36.803 | -73.12 | Bocatoma | VIII
+HPNII  | -36.791 | -73.119 | ENAP Price | VIII
+HPNIII  | -36.781 | -73.116 | JUNJI | VIII
+HQI  | -36.977 | -72.932 | Hualqui | VIII
+LAJ | -37.268 | -72.711 | Laja | VIII
+LAI | -37.471 | -72.361 | 21 de mayo | VIII
+LAII  | -37.463 | -72.325 | Los Ángeles Oriente | VIII
+LAIII  | -37.464 | -72.362 | CESFAM   Los Ángeles | VIII
+NACI  | -37.502 | -72.676 | Club de Empleados | VIII
+NACII  | -37.504 | -72.66 | Entre Ríos | VIII
+NACIII  | -37.509 | -72.656 | Lautaro | VIII
+QLLI | -36.684 | -72.465 | Cayumanqui | VIII
+QLLII  | -36.742 | -72.475 | Quillón | VIII
+RQL  | -36.652 | -72.455 | Nueva Aldea | VIII
+SCA  | -36.527 | -72.07 | San Carlos | VIII
+SPP  | -36.867 | -73.141 | MASISA Mapal | VIII
+THNI  | -36.724 | -73.124 | Consultorio - San Vicente | VIII
+THNII  | -36.717 | -79.111 | Libertad | VIII
+THNIII  | -36.722 | -73.123 | San Vicente  Bomberos | VIII
+THNIV  | -36.77 | -73.114 | Indura | VIII
+THNV  | -36.737 | -73.104 | Inpesca | VIII
+THNVI | -36.736 | -73.119 | Nueva Libertad | VIII
+TME| -36.602 | -72.959 | Liceo Polivalente | VIII
 
 
 

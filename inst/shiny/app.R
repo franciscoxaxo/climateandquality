@@ -8,7 +8,13 @@ attach(e)
 ui <-fluidPage(
   ################################### HEAD #####################################
 
-    tags$head(HTML("<title>ChileAirQuality Proyect</title>")),
+    HTML("<head>
+                    <title>ChileAirQuality Proyect</title>
+                    <link rel='shortcut icon' href='ico.png'>
+                    <meta name='robots' content='ChileAirQuality Web App' />
+                    <meta name='description' content='Aplicación web para facilitar el estudio de la calidad del aire en Chile' />
+          </head>
+                   "),
 
     ################################# CALIDAD DEL AIRE TAB######################
 
