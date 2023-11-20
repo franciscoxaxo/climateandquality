@@ -280,15 +280,15 @@ TME| -36.602 | -72.959 | Liceo Polivalente | VIII
 
 #### Example 1:
 
-        ChileAirQuality(Comunas = "Cerrillos", Parametros = c("PM10, PM25"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = TRUE, Site = FALSE)
+        ChileAirQuality(Comunas = "Cerrillos", Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020", fechadeTermino = "01/01/2021", Curar = TRUE, Site = FALSE)
         
 #### Example 2:
 
-        ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE)
+        ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE)
         
 #### Example 3:
 
-        ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE, st = TRUE)
+        ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE, st = TRUE)
         
 
 ## ChileClimateData
