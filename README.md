@@ -290,8 +290,6 @@ TME| -36.602 | -72.959 | Liceo Polivalente | VIII
 
         ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE, st = TRUE)
 
-#### Example 4:
-        
 #### Example 3:
 
         ChileAirQuality(Comunas = all, Parametros = all, fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE, st = TRUE)
