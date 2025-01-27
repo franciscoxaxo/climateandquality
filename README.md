@@ -23,7 +23,7 @@ Project developed by the Department of Chemistry, Faculty of Sciences of the Uni
 
 
 ## ChileAirQuality
-Function that compiles in a data frame air quality data from the National Air Quality System ([SINCA](https://sinca.mma.gob.cl/ "SINCA")).
+Function that collects air quality data from the National Air Quality System ([SINCA](https://sinca.mma.gob.cl/ "SINCA")) in a data frame. It is highly recommended to confirm the measurement units for each parameter with those reported by ([SINCA](https://sinca.mma.gob.cl/ "SINCA"))
 
 The function has available the following air quality parameters:
 
@@ -31,12 +31,12 @@ Parameter| Description                                      | Units
 ---------|--------------------------------------------------|----------
 PM10     |Particulate material minor to 10 micron           | ug/m^{3}N
 PM25     |Particulate material minor to 2,5 micron          | ug/m^{3}N
-SO2      |Sulfur dioxide                                    | ug/m^{3}N
+SO2      |Sulfur dioxide                                    | ppb
 NOX      |Nitrogen oxides                                   | ppb
 NO       |Nitrogen monoxide                                 | ppb
 NO2      |Nitrogen dioxide                                  | ppb
 O3       |tropospheric ozone                                | ppb
-CO       |Carbon monoxide                                   | ppb
+CO       |Carbon monoxide                                   | ppm
 temp     |Temperature                                       | °C
 ws       |Wind speed                                        | m/s
 wd       |Wind direction                                    | °
@@ -45,18 +45,18 @@ HR       |Relative humidity                                 | %
 
 The following stations are available:
 
-Code      |Latitude    |Longitude    |Estation                  | Ad. division |
-----------|------------|-------------|--------------------------|--------------|
-SA        |-33.450819  | -70.6604476  | Parque O'Higgins | RM
-CEII      | -33.479515 | -70.719064 | Cerrillos 1 | RM
-CEI       |-33.482411  | -70.703947 | Cerrillos | RM
-CN        |-33.419725  | -70.73179 | Cerro Navia | RM
-EB        | -33.533626 | -70.665906 | El Bosque | RM
-IN        | -33.40892 | -70.650886 | Independencia | RM
-LF        |  -33.503288 | -70.587916 | La Florida | RM
-LC        |-33.363453 | -70.523024 | Las Condes | RM
-PU        | -33.424439 | -70.749876 | Pudahuel | RM
-PA        | -33.577948 | -70.594184 | Puente Alto | RM
+Code      |Latitude    |Longitude             |Estation                  | Ad. division |
+----------|------------|----------------------|--------------------------|--------------|
+SA        |-33.450819  | -70.6604476          | Parque O'Higgins         | RM
+CEII      | -33.479515 | -70.719064           | Cerrillos 1              | RM
+CEI       |-33.482411  | -70.703947           | Cerrillos                | RM
+CN        |-33.419725  | -70.73179            | Cerro Navia              | RM
+EB        | -33.533626 | -70.665906           | El Bosque                | RM
+IN        | -33.40892 | -70.650886            | Independencia            | RM
+LF        |  -33.503288 | -70.587916          | La Florida               | RM
+LC        |-33.363453 | -70.523024            | Las Condes               | RM
+PU        | -33.424439 | -70.749876           | Pudahuel                 | RM
+PA        | -33.577948 | -70.594184           | Puente Alto              | RM
 QU        | -33.33632 | -70.723583 | Quilicura | RM
 QUI       | -33.352539 | -70.747952 | Quilicura 1 | RM
 TAL       | -33.674 | -70.953 | Talagante | RM
@@ -280,19 +280,19 @@ TME| -36.602 | -72.959 | Liceo Polivalente | VIII
 
 #### Example 1:
 
-        ChileAirQuality(Comunas = "Cerrillos", Parametros = c("PM10, PM25"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = TRUE, Site = FALSE)
+        ChileAirQuality(Comunas = "Cerrillos", Parametros = c("PM10", "PM25"), fechadeInicio = "01/01/2020", fechadeTermino = "01/01/2021", Curar = TRUE, Site = FALSE)
         
 #### Example 2:
 
-        ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE)
+        ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE)
         
 #### Example 3:
 
-        ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE, st = TRUE)
+        ChileAirQuality(Comunas = c("SA", "CE"), Parametros = c("NO2", "O3"), fechadeInicio = "01/01/2020", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE, st = TRUE)
 
 #### Example 3:
 
-        ChileAirQuality(Comunas = all, Parametros = all, fechadeInicio = "01/01/2020,", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE, st = TRUE)
+        ChileAirQuality(Comunas = "all", Parametros = "all", fechadeInicio = "01/01/2020", fechadeTermino = "01/01/2021", Curar = FALSE, Site = TRUE, st = TRUE)
         
 
 ## ChileClimateData
